@@ -1,19 +1,18 @@
 import requests, json, re, os
 
 session = requests.session()
-# 配置用户名（一般是邮箱）
 email = os.environ.get('EMAIL')
-# 配置用户名对应的密码 和上面的email对应上
 passwd = os.environ.get('PASSWD')
+base_url = os.environ.get('BASEURL')
 # server酱
 SCKEY = os.environ.get('SCKEY')
 
-login_url = 'https://ikuuu.art/auth/login'
-check_url = 'https://ikuuu.art/user/checkin'
-info_url = 'https://ikuuu.art/user/profile'
+login_url = f"{base_url}/auth/login"
+check_url = f"{base_url}/user/checkin"
+info_url = f"{base_url}/user/profile"
 
 header = {
-        'origin': 'https://ikuuu.art',
+        'origin': base_url,
         'user-agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
 }
 data = {
